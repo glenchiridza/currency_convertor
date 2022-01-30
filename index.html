@@ -20,32 +20,40 @@
 
             <section>
                 <div class="content-wrapper">
-                    <h1>glen</h1>
+                    <p>GrowthSense Currency Convertor</p>
                 </div>
             </section>
-
-        </div>
-
-        <div class="container-fluid">
 <!--inner row-->
 
             <div class="row">
 <!--left-->
 
-                <div class="col-md-8">
+                <div class="col-md-9 card">
                     <div class="row">
                         <div class="col-md-4">
-                            <input type="number">
+                            <label>Amt $</label>
+                            <input type="number" class="height input-amt" required id="amt" placeholder="0.00">
                         </div>
                         
                         <div class="col-md-4">
-                            <input type="text">
+                            <label> From </label>
+                            <select class="col-12 height choice-from" id="select-from">
+                                <option selected="selected" value="USD">USD</option>
+                                <option selected="selected" value="EURO">EURO</option>
+                                <option selected="selected">RSA</option>
+                                <option selected="selected">ZWL</option>
+                            </select>
                         </div>
 
 
                         <div class="col-md-4">
-
-                            <input type="text">
+                            <label>To</label>
+                            <select class="col-12 height choice-to" id="select-to">
+                                <option selected="selected" value="USD">USD</option>
+                                <option selected="selected" value="EURO">EURO</option>
+                                <option selected="selected">RSA</option>
+                                <option selected="selected">ZWL</option>
+                            </select>
                         </div>
 
                         <div class="col-12 d-flex justify-content-between">
@@ -53,13 +61,16 @@
                                 Convertion rate <br/> 
                                 usd 1 == 1.049 Euro
                             </span>
+                            <div id="final-amt">
+                            <span class="final-value"></span>
+                            </div>
 
-                            <span><button class="btn btn-primary">Convert</button></span>
+                            <span><button class="btn btn-primary btn-convert">Convert</button></span>
                         </div>
                 </div>
 <!--right-->
 
-                <div class="col-md-4"></div>
+                <div class="col-md-2"></div>
 
             </div>
 <!--end inner row-->
