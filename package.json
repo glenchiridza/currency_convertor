@@ -4,7 +4,7 @@
   "description": "currency convertor with typescript",
   "main": "src/index.js",
   "scripts": {
-    "test": "test",
+    "test": "tester",
     "start": "lite-server"
   },
   "repository": {
