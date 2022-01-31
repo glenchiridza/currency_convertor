@@ -2,11 +2,12 @@
   "name": "growthsense-currency-convertor",
   "version": "1.0.0",
   "description": "currency convertor with typescript",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "tester",
     "start": "lite-server"
   },
+  "type":"module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/glenchiridza/currency-convertor.git"

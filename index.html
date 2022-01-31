@@ -20,7 +20,7 @@
 
             <section>
                 <div class="content-wrapper">
-                    <p>GrowthSense Currency Convertor</p>
+                    <p class="header-text">GrowthSense Currency Convertor</p>
                 </div>
             </section>
 <!--inner row-->
@@ -31,58 +31,119 @@
                 <div class="col-md-9 card">
                     <div class="row">
                         <div class="col-md-4">
-                            <label>Amt $</label>
-                            <input type="number" class="height input-amt" required id="amt" placeholder="0.00">
+                            <label id="label_amt">Amount $</label>
+                            <input type="number" class="col-12 height input-amt" required id="amt" placeholder="0.00">
                         </div>
                         
                         <div class="col-md-4">
-                            <label> From </label>
+                            <label id="label_from"> From </label>
                             <select class="col-12 height choice-from" id="select-from">
                                 <option selected="selected" value="USD">USD</option>
-                                <option selected="selected" value="EURO">EURO</option>
-                                <option selected="selected">RSA</option>
-                                <option selected="selected">ZWL</option>
+                                <option value="EURO">EURO</option>
+                                <option value="ZAR">ZAR</option>
+                                <option value="ZWL">ZWL</option>
                             </select>
                         </div>
 
 
                         <div class="col-md-4">
-                            <label>To</label>
+                            <label id="label_to">To</label>
                             <select class="col-12 height choice-to" id="select-to">
-                                <option selected="selected" value="USD">USD</option>
-                                <option selected="selected" value="EURO">EURO</option>
-                                <option selected="selected">RSA</option>
-                                <option selected="selected">ZWL</option>
+                                <option selected="selected" value="ZWL">ZWL</option>
+                                <option value="USD">USD</option>
+                                <option value="EURO">EURO</option>
+                                <option value="ZAR">ZAR</option>
                             </select>
                         </div>
 
-                        <div class="col-12 d-flex justify-content-between">
+                        <div class="col-12 d-flex justify-content-between mt-3">
                             
-                            <div id="final-amt">
+
                                 <!--output the result eg usd 1 == 1.049 Euro-->
-                            <p class="final-value">
-                                Convertion rate <br/> 
-                                <span class="input-amt"></span>
-                                 <span class="choice-from"></span> == 
-                                <span class="choice-to"></span>
+                            <div id="final-amt">
+                            <p>
+                                <span id="conversion_text">Conversion result</span> <br/> 
+                                $<span id="final-choice-from"></span>
+                                <span id="final-input-amt"></span>
+                                  &nbsp;== &nbsp;
+                                $<span id="final-choice-to"></span>
+                                <span class="final-value"></span>
                             </p>
                             </div>
 
-                            <span><button class="btn btn-primary btn-convert">Convert</button></span>
+                            <div id="loader" style="visibility: hidden;">
+                            <img  src="assets/images/loader.gif"
+                             class="img-fluid" height="20px" width="40px"/>
+                             </div>
+
+                            <!--end output the result-->
+
+                            <span><button class="btn btn-primary btn-convert" id="button_text">Convert</button></span>
                         </div>
+
+                        
                 </div>
 <!--right-->
 
-                <div class="col-md-2"></div>
 
+            </div>
+
+            <div class="col-md-2">
+                <div class="card text-center">
+                    <p style="font-weight: 700;font-size: 4rem;">$</p>
+                    <p>Language</p>
+                    <select class="choice-lang">
+                        <option selected="selected" value="English">English</option>
+                        <option value="Shona">Shona</option>
+                    </select>
+                </div>
             </div>
 <!--end inner row-->
 
-        </div>
+
+            
+
+            <div class="col-md-9 bt-cards card">
+                <div class="row col-md-9 mb-3">
+                    <p class="header-text" id="ct">Convert with ZIM banks</p>
+                </div>
+
+                <div class="row text-center">
+                    <div class="col-md-4 card">
+                        <span  id="c1">Fast</span>
+                    </div>
+
+                    
+                    <div class="col-md-4 card" >
+                        <span id="c2">Easy</span>
+                    </div>
+
+                    
+                    <div class="col-md-4 card" >
+                        <span id="c3">Reliable</span>
+                    </div>
+                </div>
+            </div>
+
 
     </div>
+    <!--end container-->
+</div>
+<!--end outer div-->
 
-    <script src="./dist/index.js"></script>
+<div class="container">
+
+    <div class="row col-md-8" style="bottom:0;position:absolute;">
+        <hr style="color:#fff" class="col-11"/>
+        <p class="col-md-3 col-sm-4">GrowthSense &copy 2021</p>
+        <p class="col-md-4 col-sm-4">Powered by exchangerate API</p>
+        <p class="col-md-5 col-sm-4">Design by glenchiridza <a href="https://github.com/glenchiridza">github</a> or <a href="glenchiridza.web.app">site</a></p>
+    </div>
+
+
+</div>
+
+    <script type="module" src="./dist/index.js"></script>
 </body>
 
 

@@ -1,30 +1,44 @@
+import { Language } from './public/language.js';
+import {FetchService} from './services/fetch.service.js'
 
-function Sum(){
-    return 5 + 6;
-}
+//language changer
+const lang = new Language();
+lang.changeLang();
 
-console.log(Sum());
+//service to fetch exchange-rate from api
+const fetchService = new FetchService();
 
 
-const base_url:string = 'https://api.exchangerate.host/';
-
+//dom elements to output data to
 var input_amt = document.querySelector(".input-amt");
 var btn_convert = document.querySelector(".btn-convert");
 var from_currency = document.querySelector('.choice-from');
-var to_currency = document.querySelector('.choice-from');
+var to_currency = document.querySelector('.choice-to');
+
 var final_val = document.querySelector('.final-value');
 var final_amt = document.getElementById('final-amt');
-var resultFrom: string;
-var resultTo: string;
-var input_amount: { value: any; };
+
+//shown when conversion is done
+var final_input_amt:any = document.getElementById('final-input-amt');
+var final_choice_from = document.getElementById('final-choice-from');
+var final_choice_to = document.getElementById('final-choice-to');
+
+var loaderImg = document.getElementById("loader");
+
+//holder variables, 
+//start currency codes, before change
+var choiceFrom: string = "USD";
+var choiceTo: string ="ZWL";
+
+var input_amount:string
 
 
 from_currency?.addEventListener('change',(event:any)=>{
-    resultFrom = `${event.target.value}`;
+    choiceFrom = `${event.target.value}`;
 });
 
 to_currency?.addEventListener('change',(event:any)=>{
-    resultTo = `${event.target.value}`;
+    choiceTo = `${event.target.value}`;
 });
 
 input_amt?.addEventListener('input',updateValue);
@@ -35,44 +49,31 @@ function updateValue(event:any){
     input_amount = event.target.value;
 }
 
-btn_convert?.addEventListener('click',fetchResult);
+//when button convert is clicked, search for result, this is the trigger to search
+btn_convert?.addEventListener('click',convertNow);
 
 
-function fetchResult(){
-    console.log(input_amount)
-    console.log(resultTo)
-    console.log(resultFrom)
-    if(input_amount){
-        var add_to_api_url:string = base_url+`convert?amount=${input_amount}&from=${resultFrom}&to=${resultTo}`;
-        console.log(add_to_api_url);
-    }else{
+function convertNow(){
+//fectch from api
 
-        console.log("amount is required");
-    }
+fetchService.fetchResult(input_amount!,choiceFrom,choiceTo,display);
+
 }
 
-function displayResult(currency:any){
-    final_val = currency.info.rate;
+//display the data to user
+function display(currency:any){
+    
+    //final_val = currency.info.rate; ==> the dict fields are as per the api by openexchange
+
+    
+    //output user selection change
+    final_input_amt.innerHTML = input_amount;
+    final_choice_from!.textContent = choiceFrom;
+    final_choice_to!.textContent = choiceTo;
+    loaderImg!.style.visibility="hidden";
+
+    //result from api
+    //final_val!.textContent = currency.info.rate;
+    final_val!.textContent = currency.result;
 }
-
-// console.log(CODES.CURRENCY_CODES[0]);
-
-
-// function getResults(){
-//     fetch(api_url)
-//         .then(currency =>{
-//             return currency.json();
-//         }).then(display);
-// }
-
-// function display(currency:any){
-//     console.log(currency)
-// }
         
-
-// getResults();
-
-
-
-
-
