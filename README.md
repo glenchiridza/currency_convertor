@@ -1,4 +1,5 @@
-https://github.com/glenchiridza/currency_convertor/blob/master/assets/readme/convertor.mp4
+
+![currencyconvertor](https://github.com/glenchiridza/currency_convertor/blob/master/assets/readme/convertor.mp4)
 
 **NB**: first run the following command: 
 # npm install  
